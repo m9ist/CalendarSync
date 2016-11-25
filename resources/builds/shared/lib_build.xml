@@ -1,0 +1,53 @@
+<!--Build scripts for project shared libraries-->
+<project name="libs" basedir="../../../" default="fakeSetOutDir">
+    <!--import files paths-->
+    <property file="resources/builds/shared/file_paths.properties"/>
+
+    <!--import local settings-->
+    <import file="../local/settings.xml"/>
+
+    <target name="fakeSetOutDir">
+        <!--this target is for resolve highliting of error-->
+        <property name="out.dir" value="${applications.dir}/UnknownBuild"/>
+        <property name="jar.name" value="UnknownJarName"/>
+        <property name="main.class" value="UnknownMainClass"/>
+        <property name="jar.cp" value="UnknownJarClassPath"/>
+    </target>
+
+    <target name="jar.for.mainclass">
+        <property name="java.exe.filename" value="java.exe"/>
+        <property name="java.parameters" value=""/>
+        <property name="app.parameters" value=""/>
+        <property name="out.dir" value="${jar.for.mainclass.dir}/${jar.name}"/>
+        <mkdir dir="${out.dir}"/>
+
+        <taskdef name="extract.classes" classname="com.gmware.anttasks.DependentClassesExtractor"
+                 classpath="${jar.dir}/anttasks.jar"/>
+        <extract.classes src="${src.dir}" classes="${classes.dir}" mainClass="${main.class}" out="${out.dir}/classes/">
+            <excluded pattern="PlayHoldemStarter"/>
+            <excluded pattern="play.limitbots.z.bot"/>
+            <excluded pattern="play.limitbots.z.kernel"/>
+            <excluded pattern="play.limitbots.x.bot"/>
+            <excluded pattern="play.nolimitbots.x.bot"/>
+            <excluded pattern="play.nolimitbots.x.kernel"/>
+            <excluded pattern="play.nolimitbots.z.bot"/>
+        </extract.classes>
+
+        <antcall target="finish.jar.for.mainclass"/>
+    </target>
+
+    <target name="finish.jar.for.mainclass">
+        <jar destfile="${out.dir}/${jar.name}.jar" basedir="${out.dir}/classes" level="9">
+            <manifest>
+                <attribute name="Class-Path" value="${jar.cp}"/>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+        <delete dir="${out.dir}/classes"/>
+        <!--<echo file="${out.dir}/${jar.name}.bat">@echo off-->
+        <!--start &quot;${jar.name}&quot; java.exe -jar ${java.parameters} ${jar.name}.jar ${app.parameters}-->
+        <!--</echo>-->
+    </target>
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+</project>

@@ -1,0 +1,1 @@
+java -jar Synchronizer.jar >> Synchronizer.log 2>>&1

@@ -1,0 +1,20 @@
+<project name="settings" basedir="../../../">
+    <property name="SvnVersionExecutable" value="D:\svn\bin\svnversion.exe"/>
+    <property name="SvnExecutable" value="D:\svn\bin\svn.exe"/>
+    <property name="RARExecutable" value="C:\Program Files\WinRAR\Rar.exe"/>
+    <property name="GPGExecutable" value="C:\Program Files\GNU\GnuPG\gpg.exe"/>
+
+    <property name="SourcesTrunkDir" value="K:\repos\CalendarSync"/>
+    <!-- <property name="SourcesUpdatesDir" value="K:\Dev\output\updates"/> -->
+    <property name="ClassesDir" value="${SourcesTrunkDir}\classes\production"/>
+    <!-- <property name="ClassesServerappDir" value="${ClassesDir}\serverapp"/> -->
+    <property name="OutputAntDir" value="${SourcesTrunkDir}\release"/>
+    <!-- <property name="LocalDeploymentDir" value="K:\Dev\test\server\current"/> -->
+
+    <!-- <property name="sftp.UserName" value="test10"/> -->
+    <!-- <property name="sftp.KeyFile" value="K:\${sftp.UserName}.pem"/> -->
+    <!-- <property name="sftp.KeyFilePassword" value="password"/> -->
+    <!--<property name="compile.dir" value="${SourcesTrunkDir}\release\compile" />-->
+    <!--<property name="built.jar.dir" value="${SourcesTrunkDir}\release\built" />-->
+    <!--<property name="out.dir" value="${SourcesTrunkDir}\release\built" />-->
+</project>

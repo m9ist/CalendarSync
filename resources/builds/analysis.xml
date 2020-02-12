@@ -13,7 +13,7 @@
             google-api-services-calendar-v3-rev225-1.22.0.jar google-http-client-1.22.0.jar google-http-client-jackson2-1.22.0.jar
             google-oauth-client-1.22.0.jar google-oauth-client-java6-1.22.0.jar google-oauth-client-jetty-1.22.0.jar
             httpcomponents-httpclient-4.5.2.jar httpcore-4.4.5.jar jackson-core-2.2.3.jar jetty-7.0.0.pre5.jar jetty-util-7.0.0.pre5.jar
-            joda-time-2.9.6.jar org.apache.sling.httpauth-2.0.4-incubator.jar servlet-api-3.0.20100224.jar"/>
+            joda-time-2.9.6.jar org.apache.sling.httpauth-2.0.4-incubator.jar servlet-api-3.0.20100224.jar jaxws-api-2.2.11.jar"/>
 
         <copy todir="${jar.for.mainclass.dir}/${jar.name}" overwrite="false" flatten="true">
             <file file="${jar.dir}/commons-lang3-3.4.jar"/>
@@ -34,6 +34,7 @@
             <file file="${jar.dir}/joda-time-2.9.6.jar"/>
             <file file="${jar.dir}/org.apache.sling.httpauth-2.0.4-incubator.jar"/>
             <file file="${jar.dir}/servlet-api-3.0.20100224.jar"/>
+            <file file="${jar.dir}/jaxws-api-2.2.11.jar"/>
         </copy>
 
         <antcall target="jar.for.mainclass"/>

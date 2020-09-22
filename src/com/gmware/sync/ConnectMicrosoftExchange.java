@@ -32,7 +32,7 @@ public class ConnectMicrosoftExchange {
         getActualEvents();
     }
 
-    static final int MAX_DISTANCE_REPEATED = 90;
+    static final int MAX_DISTANCE_REPEATED = 500;
 
     static ArrayList<CalendarEvent> getActualEvents() throws Exception {
         try (final ExchangeService service = new ExchangeService()) {
